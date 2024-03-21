@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SafetyInductionModelStoreContainer" CdmEntityContainer="SafetyInductionEntities">
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="SafetyInductionModel.Department">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="SafetyInductionModel.Employee">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="NID" ColumnName="NID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone_number" ColumnName="Phone number" />
+          <ScalarProperty Name="Emergency_contact" ColumnName="Emergency contact" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="DoB" ColumnName="DoB" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+          <ScalarProperty Name="Warning" ColumnName="Warning" />
+          <ScalarProperty Name="Start_date" ColumnName="Start date" />
+          <ScalarProperty Name="End_date" ColumnName="End date" />
+          <ScalarProperty Name="PosID" ColumnName="PosID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Instructors">
+      <EntityTypeMapping TypeName="SafetyInductionModel.Instructor">
+        <MappingFragment StoreEntitySet="Instructors">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Instructor_name" ColumnName="Instructor name" />
+          <ScalarProperty Name="NID" ColumnName="NID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logins">
+      <EntityTypeMapping TypeName="SafetyInductionModel.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="User_Name" ColumnName="User Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="InstID" ColumnName="InstID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Positions">
+      <EntityTypeMapping TypeName="SafetyInductionModel.Position">
+        <MappingFragment StoreEntitySet="Position">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="SafetyInductionModel.Project">
+        <MappingFragment StoreEntitySet="Project">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Project_name" ColumnName="Project name" />
+          <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+          <ScalarProperty Name="Start_date" ColumnName="Start date" />
+          <ScalarProperty Name="End_date" ColumnName="End date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="SafetyInductionModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tool_Box_Talks">
+      <EntityTypeMapping TypeName="SafetyInductionModel.Tool_Box_Talk">
+        <MappingFragment StoreEntitySet="Tool Box Talk">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TopicID" ColumnName="TopicID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="InstID" ColumnName="InstID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Topics">
+      <EntityTypeMapping TypeName="SafetyInductionModel.Topic">
+        <MappingFragment StoreEntitySet="Topics">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Attends">
+      <EntityTypeMapping TypeName="SafetyInductionModel.Attend">
+        <MappingFragment StoreEntitySet="Attend">
+          <ScalarProperty Name="TopicID" ColumnName="TopicID" />
+          <ScalarProperty Name="NID" ColumnName="NID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

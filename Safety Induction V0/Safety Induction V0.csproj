@@ -1,0 +1,406 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{097DCAFE-871F-4A2B-BC61-44B0B8DF129B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Safety_Induction_V0</RootNamespace>
+    <AssemblyName>Safety Induction V0</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Elasticsearch.Net, Version=7.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
+      <HintPath>packages\Elasticsearch.Net.7.17.5\lib\net461\Elasticsearch.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Nest, Version=7.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
+      <HintPath>packages\NEST.7.17.5\lib\net461\Nest.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.5.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attend.cs">
+      <DependentUpon>SafetyInduction_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Department.cs">
+      <DependentUpon>SafetyInduction_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>SafetyInduction_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Instructor.cs">
+      <DependentUpon>SafetyInduction_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <DependentUpon>SafetyInduction_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Class1.cs" />
+    <Compile Include="Models\EditProfileMethods.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\AddProjectPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\AddProjectPage.Designer.cs">
+      <DependentUpon>AddProjectPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\AddTBTPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\AddTBTPage.Designer.cs">
+      <DependentUpon>AddTBTPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\EditProjectPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\EditProjectPage.Designer.cs">
+      <DependentUpon>EditProjectPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\ForgotPasswordPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\ForgotPasswordPage.Designer.cs">
+      <DependentUpon>ForgotPasswordPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\ManageEmployeesPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\ManageEmployeesPage.Designer.cs">
+      <DependentUpon>ManageEmployeesPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\StatisticsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\StatisticsPage.Designer.cs">
+      <DependentUpon>StatisticsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\UpdateProjectEndDatePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\UpdateProjectEndDatePage.Designer.cs">
+      <DependentUpon>UpdateProjectEndDatePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\z-Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\z-Form1.Designer.cs">
+      <DependentUpon>z-Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InsertTBTMethods.cs" />
+    <Compile Include="Models\LoginMethod.cs" />
+    <Compile Include="Models\ManageAutotizationMethods.cs" />
+    <Compile Include="Models\ProjectGVBindingMethods.cs" />
+    <Compile Include="Models\TBTGVBindingMethods.cs" />
+    <Compile Include="Position.cs">
+      <DependentUpon>SafetyInduction_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Project.cs">
+      <DependentUpon>SafetyInduction_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>SafetyInduction_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SafetyInduction_Database.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SafetyInduction_Database.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SafetyInduction_Database.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SafetyInduction_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SafetyInduction_Database.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SafetyInduction_Database.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Tool_Box_Talk.cs">
+      <DependentUpon>SafetyInduction_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Topic.cs">
+      <DependentUpon>SafetyInduction_Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\z-DisplayProjectDetailsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\z-DisplayProjectDetailsPage.Designer.cs">
+      <DependentUpon>z-DisplayProjectDetailsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\DisplayProjectPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\DisplayProjectPage.Designer.cs">
+      <DependentUpon>DisplayProjectPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\z-EditPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\z-EditPage.Designer.cs">
+      <DependentUpon>z-EditPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\EditAuthorizationPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\EditAuthorizationPage.Designer.cs">
+      <DependentUpon>EditAuthorizationPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\EditTBTPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\EditTBTPage.Designer.cs">
+      <DependentUpon>EditTBTPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\DisplayTBTPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\DisplayTBTPage.Designer.cs">
+      <DependentUpon>DisplayTBTPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\HomePage.Designer.cs">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\z-Trial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\z-Trial.Designer.cs">
+      <DependentUpon>z-Trial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\z-EditEmployeePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\z-EditEmployeePage.Designer.cs">
+      <DependentUpon>z-EditEmployeePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\z-DisplayEmployeePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\z-DisplayEmployeePage.Designer.cs">
+      <DependentUpon>z-DisplayEmployeePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsForms\LoginPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\LoginPage.Designer.cs">
+      <DependentUpon>LoginPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WindowsForms\UserPersonalDetailsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowsForms\UserPersonalDetailsPage.Designer.cs">
+      <DependentUpon>UserPersonalDetailsPage.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="WindowsForms\AddProjectPage.resx">
+      <DependentUpon>AddProjectPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\AddTBTPage.resx">
+      <DependentUpon>AddTBTPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\EditProjectPage.resx">
+      <DependentUpon>EditProjectPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\ForgotPasswordPage.resx">
+      <DependentUpon>ForgotPasswordPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\ManageEmployeesPage.resx">
+      <DependentUpon>ManageEmployeesPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\StatisticsPage.resx">
+      <DependentUpon>StatisticsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\UpdateProjectEndDatePage.resx">
+      <DependentUpon>UpdateProjectEndDatePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\z-Form1.resx">
+      <DependentUpon>z-Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\z-DisplayProjectDetailsPage.resx">
+      <DependentUpon>z-DisplayProjectDetailsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\DisplayProjectPage.resx">
+      <DependentUpon>DisplayProjectPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\z-EditPage.resx">
+      <DependentUpon>z-EditPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\EditAuthorizationPage.resx">
+      <DependentUpon>EditAuthorizationPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\EditTBTPage.resx">
+      <DependentUpon>EditTBTPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\DisplayTBTPage.resx">
+      <DependentUpon>DisplayTBTPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\HomePage.resx">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\z-Trial.resx">
+      <DependentUpon>z-Trial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\z-EditEmployeePage.resx">
+      <DependentUpon>z-EditEmployeePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\z-DisplayEmployeePage.resx">
+      <DependentUpon>z-DisplayEmployeePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\LoginPage.resx">
+      <DependentUpon>LoginPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowsForms\UserPersonalDetailsPage.resx">
+      <DependentUpon>UserPersonalDetailsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Tool_Box_Talk.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="SafetyInduction_Database.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SafetyInduction_Database.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SafetyInduction_Database.edmx.diagram">
+      <DependentUpon>SafetyInduction_Database.edmx</DependentUpon>
+    </None>
+    <None Include="Style\image\navMenuImages\TBTEdit.png" />
+    <None Include="Style\image\LogoHrizontal.png" />
+    <None Include="Style\image\navMenuImages\loginIcon.png" />
+    <None Include="Style\image\Login.png" />
+    <None Include="Style\image\zeroHarm2.png" />
+    <None Include="Style\image\navMenuImages\insertEmp.png" />
+    <None Include="Style\image\navMenuImages\updateTBT.png" />
+    <None Include="Style\image\navMenuImages\updateProject.png" />
+    <None Include="Style\image\navMenuImages\updateEmp.png" />
+    <None Include="Style\image\navMenuImages\TBTDetails.png" />
+    <None Include="Style\image\navMenuImages\projectDetails.png" />
+    <None Include="Style\image\navMenuImages\logout.png" />
+    <None Include="Style\image\navMenuImages\access.png" />
+    <None Include="Style\image\zeroHarm1.png" />
+    <None Include="Style\image\zeroHarm.png" />
+    <None Include="Style\image\safety-first.png" />
+    <None Include="Style\image\viewIcon.png" />
+    <None Include="Style\image\72647 %282%29.png" />
+    <None Include="Style\image\logo2.jpg" />
+    <None Include="Resources\ra-login %281%29.png" />
+    <None Include="Resources\ra-login3.png" />
+    <None Include="Resources\ra-login.png" />
+    <None Include="Resources\ra-login %281%291.png" />
+    <None Include="Style\image\safety-first.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Style\icon\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SafetyInduction_Database.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SafetyInduction_Database.edmx</DependentUpon>
+      <LastGenOutput>SafetyInduction_Database.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SafetyInduction_Database.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SafetyInduction_Database.edmx</DependentUpon>
+      <LastGenOutput>SafetyInduction_Database.cs</LastGenOutput>
+    </Content>
+    <None Include="Style\image\navMenuImages\statistics.png" />
+    <None Include="Style\image\navMenuImages\line.png" />
+    <None Include="Style\image\navMenuImages\member-icon.png" />
+    <None Include="Style\image\navMenuImages\SafetyWorkPlace.png" />
+    <None Include="Style\image\SafetyWorkPlace.jpg" />
+    <None Include="Style\image\navMenuImages\cloud.png" />
+    <None Include="Style\image\navMenuImages\ManSafety.png" />
+    <None Include="Style\image\navMenuImages\laptopWork1.png" />
+    <None Include="Style\image\navMenuImages\laptopWork.png" />
+    <None Include="Style\image\navMenuImages\settings.png" />
+    <None Include="Style\image\navMenuImages\home.png" />
+    <None Include="Style\Status.png" />
+    <None Include="Style\image\navMenuImages\updateStatus.png" />
+    <None Include="Style\image\updatestatus.png" />
+    <None Include="Style\image\addTBT.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

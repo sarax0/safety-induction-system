@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d5ad7460e95549b092e3ec0d60d9770e" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="SafetyInductionModel.Department" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafetyInductionModel.Employee" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafetyInductionModel.Instructor" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafetyInductionModel.Login" Width="1.5" PointX="7.5" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafetyInductionModel.Position" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafetyInductionModel.Project" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafetyInductionModel.Role" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafetyInductionModel.Tool_Box_Talk" Width="1.5" PointX="9.375" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SafetyInductionModel.Topic" Width="1.5" PointX="9.375" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="SafetyInductionModel.FK_Departments_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="SafetyInductionModel.FK_Employees_Departments" ManuallyRouted="false" />
+        <AssociationConnector Association="SafetyInductionModel.FK_Employees_Positions" ManuallyRouted="false" />
+        <AssociationConnector Association="SafetyInductionModel.FK_Instructors_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="SafetyInductionModel.FK_Project_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="SafetyInductionModel.FK_Login_Instructors" ManuallyRouted="false" />
+        <AssociationConnector Association="SafetyInductionModel.FK_Tool_Box_Talk_Instructors" ManuallyRouted="false" />
+        <AssociationConnector Association="SafetyInductionModel.FK_Login_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="SafetyInductionModel.FK_Tool_Box_Talk_Topics" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SafetyInductionModel.Attend" Width="1.5" PointX="11.625" PointY="6.25" />
+        <AssociationConnector Association="SafetyInductionModel.FK_Attend_Employees" />
+        <AssociationConnector Association="SafetyInductionModel.FK_Attend_Topics" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

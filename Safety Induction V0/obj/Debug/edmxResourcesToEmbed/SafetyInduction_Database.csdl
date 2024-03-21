@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SafetyInductionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ManagerID" Type="String" MaxLength="14" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Departments_Employees" FromRole="Departments" ToRole="Employees" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Departments" FromRole="Departments" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="NID" />
+    </Key>
+    <Property Name="NID" Type="String" MaxLength="14" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Phone_number" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <Property Name="Emergency_contact" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DoB" Type="DateTime" Precision="0" />
+    <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeptID" Type="Int16" />
+    <Property Name="Warning" Type="Int32" />
+    <Property Name="Start_date" Type="DateTime" Precision="0" />
+    <Property Name="End_date" Type="DateTime" Precision="0" />
+    <Property Name="PosID" Type="Int16" />
+    <NavigationProperty Name="Departments" Relationship="Self.FK_Departments_Employees" FromRole="Employees" ToRole="Departments" />
+    <NavigationProperty Name="Department" Relationship="Self.FK_Employees_Departments" FromRole="Employees" ToRole="Departments" />
+    <NavigationProperty Name="Position" Relationship="Self.FK_Employees_Positions" FromRole="Employees" ToRole="Position" />
+    <NavigationProperty Name="Instructors" Relationship="Self.FK_Instructors_Employees" FromRole="Employees" ToRole="Instructors" />
+    <NavigationProperty Name="Projects" Relationship="Self.FK_Project_Employees" FromRole="Employees" ToRole="Project" />
+    <Property Name="Gender" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Attends" Relationship="SafetyInductionModel.FK_Attend_Employees" FromRole="Employee" ToRole="Attend" />
+  </EntityType>
+  <EntityType Name="Instructor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Instructor_name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="NID" Type="String" MaxLength="14" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Instructors_Employees" FromRole="Instructors" ToRole="Employees" />
+    <NavigationProperty Name="Logins" Relationship="Self.FK_Login_Instructors" FromRole="Instructors" ToRole="Login" />
+    <NavigationProperty Name="Tool_Box_Talk" Relationship="Self.FK_Tool_Box_Talk_Instructors" FromRole="Instructors" ToRole="Tool_Box_Talk" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="User_Name" />
+    </Key>
+    <Property Name="User_Name" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InstID" Type="Int16" />
+    <Property Name="RoleID" Type="Int16" />
+    <NavigationProperty Name="Instructor" Relationship="Self.FK_Login_Instructors" FromRole="Login" ToRole="Instructors" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_Login_Role" FromRole="Login" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Positions" FromRole="Position" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Project_name" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="ManagerID" Type="String" MaxLength="14" FixedLength="true" Unicode="true" />
+    <Property Name="Start_date" Type="DateTime" Precision="0" />
+    <Property Name="End_date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Project_Employees" FromRole="Project" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Logins" Relationship="Self.FK_Login_Role" FromRole="Role" ToRole="Login" />
+  </EntityType>
+  <EntityType Name="Tool_Box_Talk">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TopicID" Type="Int16" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="InstID" Type="Int16" />
+    <NavigationProperty Name="Instructor" Relationship="Self.FK_Tool_Box_Talk_Instructors" FromRole="Tool_Box_Talk" ToRole="Instructors" />
+    <NavigationProperty Name="Topic" Relationship="Self.FK_Tool_Box_Talk_Topics" FromRole="Tool_Box_Talk" ToRole="Topics" />
+  </EntityType>
+  <EntityType Name="Topic">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tool_Box_Talk" Relationship="Self.FK_Tool_Box_Talk_Topics" FromRole="Topics" ToRole="Tool_Box_Talk" />
+    <NavigationProperty Name="Attends" Relationship="SafetyInductionModel.FK_Attend_Topics" FromRole="Topic" ToRole="Attend" />
+  </EntityType>
+  <Association Name="FK_Departments_Employees">
+    <End Role="Employees" Type="Self.Employee" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Departments" Type="Self.Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="NID" />
+      </Principal>
+      <Dependent Role="Departments">
+        <PropertyRef Name="ManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_Departments">
+    <End Role="Departments" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Employees" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="DeptID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_Positions">
+    <End Role="Position" Type="Self.Position" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Employees" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="PosID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Instructors_Employees">
+    <End Role="Employees" Type="Self.Employee" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Instructors" Type="Self.Instructor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="NID" />
+      </Principal>
+      <Dependent Role="Instructors">
+        <PropertyRef Name="NID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Project_Employees">
+    <End Role="Employees" Type="Self.Employee" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="NID" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="ManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Login_Instructors">
+    <End Role="Instructors" Type="Self.Instructor" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Login" Type="Self.Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instructors">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Login">
+        <PropertyRef Name="InstID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tool_Box_Talk_Instructors">
+    <End Role="Instructors" Type="Self.Instructor" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tool_Box_Talk" Type="Self.Tool_Box_Talk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instructors">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tool_Box_Talk">
+        <PropertyRef Name="InstID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Login_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="Login" Type="Self.Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Login">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tool_Box_Talk_Topics">
+    <End Role="Topics" Type="Self.Topic" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tool_Box_Talk" Type="Self.Tool_Box_Talk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topics">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tool_Box_Talk">
+        <PropertyRef Name="TopicID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SafetyInductionEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Departments" EntityType="Self.Department" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Instructors" EntityType="Self.Instructor" />
+    <EntitySet Name="Logins" EntityType="Self.Login" />
+    <EntitySet Name="Positions" EntityType="Self.Position" />
+    <EntitySet Name="Projects" EntityType="Self.Project" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="Tool_Box_Talks" EntityType="Self.Tool_Box_Talk" />
+    <EntitySet Name="Topics" EntityType="Self.Topic" />
+    <AssociationSet Name="FK_Departments_Employees" Association="Self.FK_Departments_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Departments" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_Departments" Association="Self.FK_Employees_Departments">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_Positions" Association="Self.FK_Employees_Positions">
+      <End Role="Position" EntitySet="Positions" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Instructors_Employees" Association="Self.FK_Instructors_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Instructors" EntitySet="Instructors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_Employees" Association="Self.FK_Project_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Project" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Login_Instructors" Association="Self.FK_Login_Instructors">
+      <End Role="Instructors" EntitySet="Instructors" />
+      <End Role="Login" EntitySet="Logins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tool_Box_Talk_Instructors" Association="Self.FK_Tool_Box_Talk_Instructors">
+      <End Role="Instructors" EntitySet="Instructors" />
+      <End Role="Tool_Box_Talk" EntitySet="Tool_Box_Talks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Login_Role" Association="Self.FK_Login_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Login" EntitySet="Logins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tool_Box_Talk_Topics" Association="Self.FK_Tool_Box_Talk_Topics">
+      <End Role="Topics" EntitySet="Topics" />
+      <End Role="Tool_Box_Talk" EntitySet="Tool_Box_Talks" />
+    </AssociationSet>
+    <EntitySet Name="Attends" EntityType="SafetyInductionModel.Attend" />
+    <AssociationSet Name="FK_Attend_Employees" Association="SafetyInductionModel.FK_Attend_Employees">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Attend" EntitySet="Attends" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Attend_Topics" Association="SafetyInductionModel.FK_Attend_Topics">
+      <End Role="Topic" EntitySet="Topics" />
+      <End Role="Attend" EntitySet="Attends" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Attend">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NID" Type="String" MaxLength="14" FixedLength="true" Unicode="true" />
+    <Property Name="TopicID" Type="Int16" />
+    <NavigationProperty Name="Employee" Relationship="SafetyInductionModel.FK_Attend_Employees" FromRole="Attend" ToRole="Employee" />
+    <NavigationProperty Name="Topic" Relationship="SafetyInductionModel.FK_Attend_Topics" FromRole="Attend" ToRole="Topic" />
+  </EntityType>
+  <Association Name="FK_Attend_Employees">
+    <End Type="SafetyInductionModel.Employee" Role="Employee" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SafetyInductionModel.Attend" Role="Attend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="NID" />
+      </Principal>
+      <Dependent Role="Attend">
+        <PropertyRef Name="NID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Attend_Topics">
+    <End Type="SafetyInductionModel.Topic" Role="Topic" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="SafetyInductionModel.Attend" Role="Attend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topic">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Attend">
+        <PropertyRef Name="TopicID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
