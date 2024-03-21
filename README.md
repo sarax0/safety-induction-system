@@ -1,7 +1,6 @@
 #  ZeroHarm: Employee Safety Induction Management System
 ZeroHarm is a C# desktop application designed to streamline and centralize the safety induction process for employees. It leverages an SQL database for secure data storage, along with robust authorization and authentication mechanisms.
 
-
 ![image](https://github.com/sarax0/safety-induction-system/assets/122404545/54c2ae5b-edba-4c7e-a18d-a8d89a57d7a3)
 
 **Key Functionalities:**
@@ -20,7 +19,7 @@ ZeroHarm is a C# desktop application designed to streamline and centralize the s
     * Allow users to manage their personal profiles within the system.
 * **Data-Driven Insights:**
     * Generate valuable statistics to track safety induction trends.
-    * 
+      
 ![image](https://github.com/sarax0/safety-induction-system/assets/122404545/faf4ba58-575a-40a0-9e7a-ce7022ec9ed0)
 
 **Benefits:**
