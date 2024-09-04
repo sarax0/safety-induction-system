@@ -2,6 +2,7 @@
 ZeroHarm is a C# desktop application designed to streamline and centralize the safety induction process for employees. The project involved designing and developing an SQL database to manage employee records and safety compliance, ensuring efficient data storage, retrieval, and integrity. The application integrates seamlessly with the database, providing a user-friendly interface for managing employee safety inductions, with secure access through robust authorization and authentication mechanisms.
 
 **Database Design:**
+
 The database schema centralizes key aspects of the safety induction process, ensuring efficient handling of employee data, instructional sessions, and compliance tracking.
 
 * Employees: This table manages employee records, including personal details, department assignments, and safety warnings.
